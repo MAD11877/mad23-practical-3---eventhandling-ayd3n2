@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class ListActivity extends AppCompatActivity {
 
     @Override
@@ -23,7 +25,10 @@ public class ListActivity extends AppCompatActivity {
         builder.setPositiveButton("View", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Random random = new Random();
+                int num = random.nextInt(999999999-10000000) + 10000000;
                 Intent activityName = new Intent(ListActivity.this, MainActivity.class);
+                activityName.putExtra("rnumber",num);
                 startActivity(activityName);
             }
         });
